@@ -29,11 +29,10 @@
 
 import {
     fetchAll,
-  addToCollection,
-  deleteFromCollection,
-  updateInCollection
-    } from '../services/incomeService';
-
+    addToCollection,
+    deleteFromCollection,
+    updateInCollection
+} from '../services/crudService';
   
   export default {
     name: 'IncomeForm',
@@ -50,17 +49,17 @@ import {
     },
     methods: {
       async loadIncomes() {
-        this.incomes = await fetchAll();
+        this.incomes = await fetchAll('incomes');
       },
       async addIncome() {
         if (!this.name || !this.amount) return;
-        await addToCollection(this.name, this.amount);
+        await addToCollection('incomes', {name: this.name,amount: this.amount});
         this.name = '';
         this.amount = 0;
         this.loadIncomes();
       },
       async deleteIncome(id) {
-        await deleteFromCollection(id);
+        await deleteFromCollection('incomes', id);
         this.loadIncomes();
       },
       startEditing(item) {
@@ -70,7 +69,7 @@ import {
         this.editAmount = item.amount;
       },
       async updateIncome() {
-        await updateInCollection(this.editId, this.editName, this.editAmount);
+        await updateInCollection('incomes', this.editId, {name: this.editName, amount: this.editAmount});
         this.cancelEdit();
         this.loadIncomes();
       },

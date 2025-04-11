@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>GoalGetter – Income Tracker</h1>
-    <router-view></router-view>
+    <IncomeForm />
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import IncomeForm from './components/IncomeForm.vue';
 
 export default {
   components: {
-    IncomeForm,
-  },
+    IncomeForm
+  }
 }
 </script>
