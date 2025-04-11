@@ -25,15 +25,15 @@
   </template>
   
   <script>
-  import { db } from '../firebase';
-  import {
-    collection,
-    addDoc,
-    getDocs,
-    deleteDoc,
-    doc,
-    updateDoc,
-  } from 'firebase/firestore';
+  
+
+import {
+    fetchFunc,
+    addFunc,
+    deleteFunc,
+    updateFunc,
+    } from '../services/incomeService';
+
   
   export default {
     name: 'IncomeForm',
@@ -49,26 +49,19 @@
       };
     },
     methods: {
-      async fetchIncomes() {
-        const querySnapshot = await getDocs(collection(db, 'incomes'));
-        this.incomes = querySnapshot.docs.map(doc => ({
-          id: doc.id,
-          ...doc.data()
-        }));
+      async loadIncomes() {
+        this.incomes = await fetchFunc();
       },
       async addIncome() {
         if (!this.name || !this.amount) return;
-        await addDoc(collection(db, 'incomes'), {
-          name: this.name,
-          amount: this.amount
-        });
+        await addFunc(this.name, this.amount);
         this.name = '';
         this.amount = 0;
-        this.fetchIncomes();
+        this.loadIncomes();
       },
       async deleteIncome(id) {
-        await deleteDoc(doc(db, 'incomes', id));
-        this.fetchIncomes();
+        await deleteFunc(id);
+        this.loadIncomes();
       },
       startEditing(item) {
         this.editing = true;
@@ -77,13 +70,9 @@
         this.editAmount = item.amount;
       },
       async updateIncome() {
-        const docRef = doc(db, 'incomes', this.editId);
-        await updateDoc(docRef, {
-          name: this.editName,
-          amount: this.editAmount
-        });
+        await updateFunc(this.editId, this.editName, this.editAmount);
         this.cancelEdit();
-        this.fetchIncomes();
+        this.loadIncomes();
       },
       cancelEdit() {
         this.editing = false;
@@ -93,7 +82,7 @@
       }
     },
     mounted() {
-      this.fetchIncomes();
+      this.loadIncomes();
     }
   };
   </script>
