@@ -10,7 +10,7 @@ import {
 
 const incomesCollection = collection(db, 'incomes');
 
-export async function fetchFunc() {
+export async function fetchAll() {
   const querySnapshot = await getDocs(incomesCollection);
   return querySnapshot.docs.map(doc => ({
     id: doc.id,
@@ -18,15 +18,15 @@ export async function fetchFunc() {
   }));
 }
 
-export async function addFunc(name, amount) {
+export async function addToCollection(name, amount) {
   await addDoc(incomesCollection, { name, amount });
 }
 
-export async function deleteFunc(id) {
+export async function deleteFromCollection(id) {
   await deleteDoc(doc(db, 'incomes', id));
 }
 
-export async function updateFunc(id, name, amount) {
+export async function updateInCollection(id, name, amount) {
   const docRef = doc(db, 'incomes', id);
   await updateDoc(docRef, { name, amount });
 }

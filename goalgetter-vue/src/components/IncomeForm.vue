@@ -28,10 +28,10 @@
   
 
 import {
-    fetchFunc,
-    addFunc,
-    deleteFunc,
-    updateFunc,
+    fetchAll,
+  addToCollection,
+  deleteFromCollection,
+  updateInCollection
     } from '../services/incomeService';
 
   
@@ -50,17 +50,17 @@ import {
     },
     methods: {
       async loadIncomes() {
-        this.incomes = await fetchFunc();
+        this.incomes = await fetchAll();
       },
       async addIncome() {
         if (!this.name || !this.amount) return;
-        await addFunc(this.name, this.amount);
+        await addToCollection(this.name, this.amount);
         this.name = '';
         this.amount = 0;
         this.loadIncomes();
       },
       async deleteIncome(id) {
-        await deleteFunc(id);
+        await deleteFromCollection(id);
         this.loadIncomes();
       },
       startEditing(item) {
@@ -70,7 +70,7 @@ import {
         this.editAmount = item.amount;
       },
       async updateIncome() {
-        await updateFunc(this.editId, this.editName, this.editAmount);
+        await updateInCollection(this.editId, this.editName, this.editAmount);
         this.cancelEdit();
         this.loadIncomes();
       },
