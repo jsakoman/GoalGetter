@@ -1,8 +1,15 @@
 <template>
   <div class="home">
+    <img src="@/assets/logo.png" alt="Goal Getter Logo" class="logo" />
     <h1>Goal Getter</h1>
     <h2>Bertlo Lusetic & Josip Sakoman</h2>
-    <router-link to="/income">Go to Income Form</router-link>
+
+    <nav class="navbar">
+      <!-- to do components
+      <router-link to="/budgeting">Budgeting</router-link>
+      <router-link to="/planning">Planning</router-link>
+    -->
+    </nav>
   </div>
 </template>
 
@@ -13,5 +20,8 @@ export default {
 </script>
 
 <style scoped>
-/* Optional styles */
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
 </style>
