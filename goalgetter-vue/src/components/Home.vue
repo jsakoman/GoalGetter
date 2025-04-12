@@ -5,10 +5,8 @@
     <h2>Bertlo Lusetic & Josip Sakoman</h2>
 
     <nav class="navbar">
-      <!-- to do components
       <router-link to="/budgeting">Budgeting</router-link>
       <router-link to="/planning">Planning</router-link>
-    -->
     </nav>
   </div>
 </template>
