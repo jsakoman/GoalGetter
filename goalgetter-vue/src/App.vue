@@ -1,10 +1,23 @@
 <template>
   <div>
-    <h1>GoalGetter – Income Tracker</h1>
+    <Header />
+    <Navbar />
     <router-view />
   </div>
 </template>
 
 <script>
-export default {}
+import Header from './components/Header.vue'
+import Navbar from './components/Navbar.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Navbar
+  }
+}
 </script>
+
+<style>
+</style>
