@@ -1,7 +1,9 @@
 <template>
   <div class="header">
-    <img src="@/assets/logo.png" alt="Goal Getter Logo" class="logo" />
-    <h1>GOAL GETTER</h1>
+    <router-link to="/" class="logo-link">
+      <img src="@/assets/logo.png" alt="Goal Getter Logo" class="logo" />
+      <h1>GOAL GETTER</h1>
+    </router-link>
   </div>
 </template>
 
@@ -16,6 +18,11 @@ export default {
 .logo {
   width: 150px;
   margin-bottom: 20px;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .header {

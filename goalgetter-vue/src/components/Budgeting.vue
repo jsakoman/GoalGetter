@@ -6,7 +6,7 @@
       <div class="total-container">
         <!-- Clickable Total Income -->
         <div class="total-amount clickable" @click="showIncomeForm = !showIncomeForm">
-          <h3>Total Income: {{ totalIncome }} CHF</h3>
+          <h3>Incomes: {{ totalIncome }} CHF</h3>
         </div>
       </div>
 
@@ -19,7 +19,7 @@
       <div class="total-container">
         <!-- Clickable Total Expense -->
         <div class="total-amount clickable" @click="showExpenseForm = !showExpenseForm">
-          <h3>Total Expenses: {{ totalExpense }} CHF</h3>
+          <h3>Expenses: {{ totalExpense }} CHF</h3>
         </div>
       </div>
 
