@@ -11,7 +11,7 @@
       </div>
 
       <!-- Income Form -->
-      <IncomeForm v-if="showIncomeForm" />
+      <IncomeForm v-if="showIncomeForm" @incomeChanged="loadIncomes" />
     </div>
 
     <!-- EXPENSES -->
@@ -24,7 +24,7 @@
       </div>
 
       <!-- Expense Form -->
-      <ExpenseForm v-if="showExpenseForm" />
+      <ExpenseForm v-if="showExpenseForm" @expenseChanged="loadExpenses" />
     </div>
 
     <!-- AVAILABLE BUDGET -->

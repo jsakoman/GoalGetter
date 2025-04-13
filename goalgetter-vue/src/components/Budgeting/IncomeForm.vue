@@ -62,6 +62,7 @@ export default {
     async addIncome() {
       if (!this.name || !this.amount) return;
       await addToCollection('incomes', { name: this.name, amount: this.amount });
+      this.$emit('incomeChanged');
       this.name = '';
       this.amount = 0;
       this.showAddForm = false; // Hide the add form after adding
@@ -69,6 +70,7 @@ export default {
     },
     async deleteIncome(id) {
       await deleteFromCollection('incomes', id);
+      this.$emit('incomeChanged');
       this.loadIncomes();
     },
     startEditing(item) {
@@ -80,6 +82,7 @@ export default {
     },
     async updateIncome() {
       await updateInCollection('incomes', this.editId, { name: this.editName, amount: this.editAmount });
+      this.$emit('incomeChanged');
       this.cancelEdit();
       this.loadIncomes();
     },
