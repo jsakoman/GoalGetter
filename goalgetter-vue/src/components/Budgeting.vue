@@ -27,6 +27,17 @@
       <ExpenseForm v-if="showExpenseForm" />
     </div>
 
+    <!-- AVAILABLE BUDGET -->
+    <div class="tab available-budget">
+      <div class="total-container">
+        <div class="total-amount">
+          <div class="budget-box" :class="availableBudget >= 0 ? 'positive' : 'negative'">
+            <h3>Available Budget: {{ availableBudget }} CHF</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -50,12 +61,14 @@ export default {
     };
   },
   computed: {
-    // Compute the total amount by summing all the items amounts
     totalIncome() {
       return this.incomes.reduce((sum, income) => sum + income.amount, 0);
     },
     totalExpense() {
       return this.expenses.reduce((sum, expense) => sum + expense.amount, 0);
+    },
+    availableBudget() {
+      return this.totalIncome - this.totalExpense;
     }
   },
   methods: {
@@ -72,3 +85,23 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .budget-box {
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .positive {
+    background-color: #e0f7e9;
+    color: #2e7d32;
+  }
+
+  .negative {
+    background-color: #ffe6e6;
+    color: #c62828;
+  }
+</style>
