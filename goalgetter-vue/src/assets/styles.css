@@ -8,49 +8,21 @@
     padding: 20px;
 }
 
-/* Flexbox container for total income and button */
-.total-income-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 800px; /* Ensure it doesn't exceed container width */
-    margin: 20px auto; /* Centers the content */
-}
-
-/* Style for total income text */
-.total-income {
-    font-size: 1.5em;
-    color: #333;
-}
-
-/* Button to toggle income form */
-.toggle-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.toggle-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.toggle-button:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-/* Table-like structure for forms */
+/* Shared container styles */
+.total-container,
 .table-container {
     width: 100%;
     max-width: 800px;
     margin: 20px auto;
+}
+
+.total-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-container {
     padding: 20px;
     background-color: white;
     border-radius: 8px;
@@ -61,14 +33,18 @@
     align-items: center;
 }
 
-/* Heading styles */
-.table-heading, .form-heading {
+/* Text styling */
+.total-amount,
+.form-heading {
     color: #333;
     font-size: 1.5em;
+}
+
+.form-heading {
     margin-bottom: 20px;
 }
 
-/* Input fields in forms */
+/* Input styling */
 .table-input {
     width: 100%;
     padding: 10px;
@@ -79,34 +55,34 @@
     box-sizing: border-box;
 }
 
-/* Button styles */
-.table-button, .table-button:hover, .table-button:focus {
+/* Generic button styling */
+.button {
     padding: 10px 20px;
+    font-size: 1em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
     transition: background-color 0.3s, transform 0.2s;
 }
 
-.table-button:hover {
-    background-color: #0056b3;
+.button:hover {
     transform: scale(1.05);
 }
 
-.table-button:focus {
+.button:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* Add different button colors */
-.add-button {
-    background-color: #28a745;
+/* Specific button colors */
+.toggle-button,
+.save-button {
+    background-color: #007bff;
     color: white;
 }
 
-.save-button {
-    background-color: #007bff;
+.add-button {
+    background-color: #28a745;
     color: white;
 }
 
@@ -125,13 +101,21 @@
     color: white;
 }
 
-/* Table-like structure for listing items */
+/* Hover effects (if you want individual button hover colors) */
+.toggle-button:hover {
+    background-color: #0056b3;
+}
+
+.table-button:hover {
+    background-color: #0056b3;
+}
+
+/* Table list styles */
 .table-list {
     list-style-type: none;
     padding: 0;
 }
 
-/* Table item styles */
 .table-item {
     display: flex;
     justify-content: space-between;
@@ -140,24 +124,13 @@
     border-bottom: 1px solid #ddd;
 }
 
-/* Custom style for toggle button */
-.toggle-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
+/* Clickable text */
+.clickable {
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: color 0.3s ease;
 }
 
-.toggle-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.toggle-button:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+.clickable:hover {
+    color: #007bff;
+    text-decoration: underline;
 }
